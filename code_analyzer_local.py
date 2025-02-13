@@ -36,8 +36,9 @@ def get_function_range(filename, function_name):
         # Check function declaration start
         if not in_function:
             # Simple function declaration detection: function name followed by left parenthesis
-            if line_strip.startswith(function_name + "("):
+            if line_strip.startswith(function_name + "(") and not line_strip.endswith(";"):
                 start_line = i
+                # print(start_line)
                 in_function = True
                 if '{' in line:
                     brace_count += line.count('{')

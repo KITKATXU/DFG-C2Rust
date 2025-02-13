@@ -27,7 +27,8 @@ def chat_with_gpt(func_name, definitions_text, dfg_text, prompt_template=None):
             prompt_template = """
             Translate the C function header and local variables into Rust code, following these rules:
             1. Translate only the function header and the definitions of local variables within the function
-            2. Define the pointer variable type as pointing to a dynamic array if its DFG contains malloc, calloc, array indexing, or pointer arithmetic.
+            2. Define the pointer variable type as pointing to a dynamic array if its DFG contains malloc, calloc.
+            2. Define the pointer variable as an index if its DFG contains array indexing, or pointer arithmetic.
             
             Only return the translated code, with no additional explanations.
             """
